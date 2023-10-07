@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local localStorage</title>
+</head>
+<body>
+    <input type="text" name="name"  class="hello lo" oninput="Savedata(event)">
+    <input type="text" name="mob" class="hello lo" oninput="Savedata(event)">
+
+    <script>
+        function Savedata(event){
+            var field = event.target;
+            localStorage.setItem(field.name,field.value)
+        }
+
+        window.onload = function(){
+            var saved = localStorage.getItem('name')
+            if(saved!==""){
+                document.getElementsByName('name')[0].value = saved
+            }
+            var saved = localStorage.getItem('mob')
+            if(saved!==""){
+                document.getElementsByName('mob')[0].value = saved
+            }
+
+        }
+    </script>
+
+
+</body>
+</html>
